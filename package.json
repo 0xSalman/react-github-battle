@@ -24,6 +24,7 @@
     "@types/react-dom": "^15.5.0",
     "@types/react-redux": "^4.4.40",
     "@types/redux-logger": "^3.0.0",
+    "axios": "^0.16.1",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-redux": "^5.0.5",
