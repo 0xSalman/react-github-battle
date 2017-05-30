@@ -1,6 +1,7 @@
 ## React Github Battle ##
 
-A simple app using Typescript, React, Redux and Webpack. 
+A simple app that shows popular github repos in different languages. 
+The app is built using Typescript, React, Redux and Webpack. 
 Hot module reloading is also enabled.
 
 ## Getting Started ##

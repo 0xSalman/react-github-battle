@@ -1,7 +1,7 @@
 {
-  "name": "react-github-battle",
+  "name": "react-github-repos",
   "version": "1.0.0",
-  "description": "A simple app built with Typescript, React, Redux and Webpack",
+  "description": "A simple app that shows popular github repos in different languages. The app is built using Typescript, React, Redux and Webpack.",
   "author": "Salman Ahmad",
   "license": "MIT",
   "repository": {
