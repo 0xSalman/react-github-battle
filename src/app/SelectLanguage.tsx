@@ -15,7 +15,7 @@ export function SelectLanguage(props: SelectLanguageProps) {
         languages.map((lang) => {
           return (
             <li key={lang}
-                className={lang === props.selectedLanguage ? 'selected' : ''}
+                className={lang === props.selectedLanguage ? 'active' : ''}
                 onClick={props.onSelect.bind(this, lang)}>
               {lang}
             </li>
