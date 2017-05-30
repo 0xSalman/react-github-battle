@@ -1,7 +1,7 @@
-import * as React from "react";
-import {SelectLanguage} from "./SelectLanguage";
-import {api} from "./common/api";
-import {RepoGrid} from "./RepoGrid";
+import * as React from 'react';
+import {SelectLanguage} from './SelectLanguage';
+import {api} from './common/api';
+import {RepoGrid} from './RepoGrid';
 
 interface LanguageSate {
   selectedLanguage: string,
