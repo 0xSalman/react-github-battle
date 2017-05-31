@@ -4,6 +4,7 @@
     "module": "es6",
     "moduleResolution": "node",
     "jsx": "react",
+    "allowSyntheticDefaultImports": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
     "sourceMap": true

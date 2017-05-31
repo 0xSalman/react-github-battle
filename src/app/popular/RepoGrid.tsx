@@ -1,10 +1,11 @@
-import * as React from 'react';
+import React from 'react';
 
 interface RepoGridProps {
   repos: Array<any>
 }
 
 export function RepoGrid(props: RepoGridProps) {
+
   return (
     <ul className='popular-list'>
       {props.repos.map((repo: any, index: number) => {

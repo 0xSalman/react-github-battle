@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 
 interface LanguageProps {
   language: string
@@ -14,13 +14,12 @@ class Language extends React.Component<LanguageProps, undefined> {
 
   render() {
 
-    const {language, selectedLanguage} = this.props;
-    const activeCls = language === selectedLanguage ? 'active' : '';
+    const activeCls = this.props.language === this.props.selectedLanguage ? 'active' : '';
 
     return (
       <li className={activeCls}
           onClick={this.onSelect}>
-        {language}
+        {this.props.language}
       </li>
     );
   }
@@ -31,19 +30,22 @@ interface SelectLanguageProps {
   onSelect: Function
 }
 
-export function SelectLanguage(props: SelectLanguageProps) {
+export class SelectLanguage extends React.PureComponent<SelectLanguageProps, undefined> {
 
-  const languages = ['All', 'CSS', 'Go', 'Kotlin', 'Swift', 'Typescript'];
+  render() {
 
-  return (
-    <ul className="languages">
-      {
-        languages.map((lang) => {
-          return <Language key={lang} language={lang}
-                           selectedLanguage={props.selectedLanguage}
-                           onSelect={props.onSelect}/>
-        })
-      }
-    </ul>
-  );
+    const languages = ['All', 'CSS', 'Go', 'Kotlin', 'Swift', 'Typescript'];
+
+    return (
+      <ul className="languages">
+        {
+          languages.map((lang) => {
+            return <Language key={lang} language={lang}
+                             selectedLanguage={this.props.selectedLanguage}
+                             onSelect={this.props.onSelect}/>
+          })
+        }
+      </ul>
+    );
+  }
 }
