@@ -1,10 +1,87 @@
 import React from 'react';
+import {PlayerInput} from './PlayerInput';
+import {PlayerPreview} from './PlayerPreview';
+import {Link} from 'react-router-dom';
 
-export class Battle extends React.Component<any, undefined> {
+interface BattleState {
+  playerOneName: string,
+  playerTwoName: string,
+  playerOneImage: string | null,
+  playerTwoImage: string | null,
+}
+
+export class Battle extends React.Component<any, BattleState> {
+
+  constructor(props: any) {
+    super(props);
+
+    this.state = {
+      playerOneName: '',
+      playerTwoName: '',
+      playerOneImage: null,
+      playerTwoImage: null,
+    }
+  }
+
+  handleSubmit = (id: string, username: string) => {
+    this.setState(() => {
+      const img = username ? `https://github.com/${username}.png?size=200` : null;
+      return {...this.state, [id + 'Name']: username, [id + 'Image']: img};
+    });
+  };
+
+  handleReset = (id: string) => {
+    this.handleSubmit(id, '');
+  };
 
   render() {
+
+    const {playerOneName, playerTwoName, playerOneImage, playerTwoImage} = this.state;
+
     return (
-      <div>Battle!</div>
+      <div>
+        <div className='row'>
+          {!playerOneName &&
+          <PlayerInput
+            id='playerOne'
+            label='Player One'
+            onSubmit={this.handleSubmit}
+          />}
+
+          {playerOneImage !== null &&
+          <PlayerPreview
+            avatar={playerOneImage}
+            username={playerOneName}
+            onReset={this.handleReset}
+            id='playerOne'
+          />}
+
+          {!playerTwoName &&
+          <PlayerInput
+            id='playerTwo'
+            label='Player Two'
+            onSubmit={this.handleSubmit}
+          />}
+
+          {playerTwoImage !== null &&
+          <PlayerPreview
+            avatar={playerTwoImage}
+            username={playerTwoName}
+            onReset={this.handleReset}
+            id='playerTwo'
+          />}
+        </div>
+
+        {playerOneImage && playerTwoImage &&
+        <Link
+          className='button'
+          to={{
+            pathname: this.props.match.url + '/results',
+            search: '?playerOneName=' + playerOneName + '&playerTwoName=' + playerTwoName
+          }}>
+          Battle
+        </Link>}
+      </div>
     );
   }
 }

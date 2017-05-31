@@ -4,6 +4,7 @@ import {Popular} from './popular';
 import {Nav} from './Nav';
 import {Home} from './Home';
 import {Battle} from './battle';
+import {Results} from './battle/Results';
 
 export class App extends React.Component<any, undefined> {
 
@@ -15,6 +16,7 @@ export class App extends React.Component<any, undefined> {
           <Switch>
             <Route exact path='/' component={Home}/>
             <Route exact path='/battle' component={Battle}/>
+            <Route path='/battle/results' component={Results}/>
             <Route path='/popular' component={Popular}/>
             <Route render={
               () => {

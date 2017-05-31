@@ -10,8 +10,8 @@ interface LanguageSate {
 
 export class Popular extends React.Component<any, LanguageSate> {
 
-  constructor(props: any, context: LanguageSate) {
-    super(props, context);
+  constructor(props: any) {
+    super(props);
 
     this.state = {
       selectedLanguage: 'All',
