@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {SelectLanguage} from './SelectLanguage';
-import {api} from './common/api';
+import {api} from '../common/api';
 import {RepoGrid} from './RepoGrid';
 
 interface LanguageSate {
@@ -12,17 +12,19 @@ export class Popular extends React.Component<any, LanguageSate> {
 
   constructor(props: any, context: LanguageSate) {
     super(props, context);
+
     this.state = {
       selectedLanguage: 'All',
       repos: null
-    }
+    };
   }
 
   componentDidMount() {
     this.updateLanguage(this.state.selectedLanguage);
   }
 
-  updateLanguage(lang: string) {
+  updateLanguage = (lang: string) => {
+
     this.setState({
       selectedLanguage: lang,
       repos: null
@@ -33,14 +35,14 @@ export class Popular extends React.Component<any, LanguageSate> {
         repos: repos
       })
     });
-  }
+  };
 
   render() {
 
     return (
       <div>
         <SelectLanguage selectedLanguage={this.state.selectedLanguage}
-                        onSelect={this.updateLanguage.bind(this)}/>
+                        onSelect={this.updateLanguage}/>
         {!this.state.repos
           ? <p>LOADING...</p>
           : <RepoGrid repos={this.state.repos}/>}

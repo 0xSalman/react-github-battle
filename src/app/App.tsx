@@ -1,9 +1,9 @@
 import * as React from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import {Popular} from './Popular';
+import {Popular} from './popular';
 import {Nav} from './Nav';
 import {Home} from './Home';
-import {Battle} from './Battle';
+import {Battle} from './battle';
 
 export class App extends React.Component<any, undefined> {
 
