@@ -30,11 +30,12 @@ export class Popular extends React.Component<any, LanguageSate> {
       repos: null
     });
 
-    api.fetchPopularRepos(lang).then(repos => {
-      this.setState({
-        repos: repos
-      })
-    });
+    api.fetchPopularRepos(lang)
+      .then(repos => {
+        this.setState({
+          repos: repos
+        })
+      });
   };
 
   render() {

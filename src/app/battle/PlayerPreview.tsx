@@ -1,21 +1,13 @@
 import React from 'react';
 
 interface PlayerPreviewProps {
-  id: string,
   avatar: string,
-  username: string,
-  onReset: Function
+  username: string
 }
 
 export class PlayerPreview extends React.PureComponent<PlayerPreviewProps, undefined> {
 
-  onReset = () => {
-    this.props.onReset(this.props.id);
-  };
-
   render() {
-
-    console.log('PlayerPreview rendered');
 
     return (
       <div>
@@ -27,11 +19,7 @@ export class PlayerPreview extends React.PureComponent<PlayerPreviewProps, undef
           />
           <h2 className='username'>@{this.props.username}</h2>
         </div>
-        <button
-          className='reset'
-          onClick={this.onReset}>
-          Reset
-        </button>
+        {this.props.children}
       </div>
     );
   }
