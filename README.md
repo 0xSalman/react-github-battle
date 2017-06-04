@@ -1,6 +1,7 @@
 ## React Github Battle ##
 
 A simple app that shows popular github repos in different languages. 
+It also lets users battle out the stats of github users. 
 The app is built using Typescript, React and Webpack. 
 Hot module reloading is also enabled.
 
