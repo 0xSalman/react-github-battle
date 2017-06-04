@@ -2,6 +2,7 @@ import React from 'react';
 import {SelectLanguage} from './SelectLanguage';
 import {api} from '../common/api';
 import {RepoGrid} from './RepoGrid';
+import {Loading} from '../loading';
 
 interface LanguageSate {
   selectedLanguage: string,
@@ -45,7 +46,7 @@ export class Popular extends React.Component<any, LanguageSate> {
         <SelectLanguage selectedLanguage={this.state.selectedLanguage}
                         onSelect={this.updateLanguage}/>
         {!this.state.repos
-          ? <p>LOADING...</p>
+          ? <Loading />
           : <RepoGrid repos={this.state.repos}/>}
       </div>
     );

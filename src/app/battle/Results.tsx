@@ -3,6 +3,7 @@ import queryString from 'query-string';
 import {api} from '../common/api';
 import {Link} from 'react-router-dom';
 import {PlayerPreview} from './PlayerPreview';
+import {Loading} from '../loading';
 
 interface ProfileProps {
   info: any
@@ -90,7 +91,7 @@ export class Results extends React.Component<any, ResultsState> {
     const {winner, loser, error, loading} = this.state;
 
     if (loading) {
-      return <p>Loading!</p>
+      return <Loading/>
     }
 
     if (error) {
