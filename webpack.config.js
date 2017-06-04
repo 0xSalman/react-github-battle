@@ -1,11 +1,10 @@
 const path = require('path');
 const webpack = require('webpack');
-// const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const src = path.resolve(__dirname, 'src');
 const dist = path.resolve(__dirname, 'dist');
 
-module.exports = {
+const config = {
 
   entry: src + '/index.tsx',
 
@@ -46,9 +45,18 @@ module.exports = {
 
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    /*new HtmlWebpackPlugin({
-     template: 'index.html'
-     })*/
-    // new webpack.NoErrorsPlugin()
   ]
 };
+
+if (process.env.NODE_ENV === 'production') {
+  config.plugins.push(
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': JSON.stringify('production')
+      }
+    }),
+    new webpack.optimize.UglifyJsPlugin()
+  )
+}
+
+module.exports = config;

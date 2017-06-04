@@ -13,6 +13,7 @@
     "clean:dist": "del-cli dist",
     "hot": "npm run server -- --hot",
     "prebuild": "npm run clean:dist",
+    "production": "NODE_ENV='production' npm run build",
     "server": "npm run webpack-dev-server -- --inline --profile --port 10000",
     "start": "npm run server",
     "watch": "npm run server -- --watch",
@@ -42,7 +43,6 @@
     "source-map-loader": "^0.2.1",
     "typescript": "^2.3.3",
     "css-loader": "^0.28.4",
-    "html-webpack-plugin": "^2.28.0",
     "style-loader": "^0.18.1",
     "webpack": "^2.6.1",
     "webpack-dev-server": "^2.4.5"
